@@ -41,6 +41,10 @@ import {
   user,
   DateInput,
   TimeInput,
+  useCheckbox,
+  tv,
+  VisuallyHidden,
+  baseStyles,
 } from "@heroui/react";
 import { getLocalTimeZone, Time, today } from "@internationalized/date";
 import {
@@ -63,8 +67,10 @@ import {
   Link,
   ClockAlert,
   ClipboardPen,
+  Send,
 } from "lucide-react";
 import React, { SVGProps, useState } from "react";
+import { isCancel } from "axios";
 
 const TopCardComp = () => {
   return (
@@ -918,19 +924,12 @@ const TableCuti = () => {
     return (
       <div className="flex flex-col gap-4 mb-[-10]">
         <div className="flex justify-between gap-3 items-end">
-          <Input
-            isClearable
-            classNames={{
-              base: "w-full sm:max-w-[44%]",
-              inputWrapper: "border-1",
-            }}
-            placeholder="Search by name..."
+          <Button
+            content="Sign for All"
             size="sm"
-            startContent={<SearchIcon className="text-default-300" />}
+            startContent={<Send className="text-default-300" />}
             value={filterValue}
             variant="bordered"
-            onClear={() => setFilterValue("")}
-            onValueChange={onSearchChange}
           />
           <div className="flex gap-3">
             <div className="flex-wrap justify-between items-center">
@@ -953,7 +952,7 @@ const TableCuti = () => {
         </div>
       </div>
     );
-  }, [filterValue, onSearchChange, onRowsPerPageChange]);
+  }, [filterValue, onRowsPerPageChange]);
   const bottomContent = React.useMemo(() => {
     return (
       <div className="flex justify-end items-center">
@@ -995,6 +994,7 @@ const TableCuti = () => {
       bottomContent={bottomContent}
       bottomContentPlacement="outside"
       classNames={classNames}
+      selectionMode="multiple"
       sortDescriptor={sortDescriptor}
       topContent={topContent}
       topContentPlacement="outside"
@@ -1026,6 +1026,37 @@ const TableCuti = () => {
 // Modal Form Untuk Approval Cuti
 const ModalApprovalCuti = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [isSelected, setIsSelected] = React.useState(false);
+  const {
+    children,
+    isFocusVisible,
+    getBaseProps,
+    getLabelProps,
+    getInputProps,
+  } = useCheckbox({
+    defaultSelected: true,
+  });
+  const checkbox = tv({
+    slots: {
+      base: "border-none hover:bg-none",
+      content: "text-default-500",
+    },
+    variants: {
+      isSelected: {
+        true: {
+          base: "border-primary bg-primary hover:bg-primary-500 hover:border-primary-500",
+          content: "text-primary-foreground pl-1",
+        },
+      },
+      isFocusVisible: {
+        true: {
+          base: "outline-none ring-2 ring-focus ring-offset-2 ring-offset-background",
+        },
+      },
+    },
+  });
+  const styles = checkbox({ isSelected, isFocusVisible });
+
   return (
     <>
       <Button
@@ -1104,30 +1135,42 @@ const ModalApprovalCuti = () => {
                         type="email"
                         variant="bordered"
                       />
-
-                      <Button
-                        className="border-none"
-                        color="secondary"
-                        variant="light"
-                        radius="full"
-                        onPress={onOpen}
-                        size="sm"
+                      <Checkbox
+                        isSelected={isSelected}
+                        onValueChange={setIsSelected}
                       >
-                        <Tooltip content="Digi-sign">
-                          <Signature />
-                        </Tooltip>
-                      </Button>
+                        <p className="text-gray-400">
+                          Digital Sign - *must be ceklis to approve
+                        </p>
+                      </Checkbox>
                     </CardFooter>
                   </Card>
                 </div>
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="flat" onPress={onClose}>
+                <Chip color="danger" variant="flat" onPress={onClose}>
                   Reject
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Approve
-                </Button>
+                </Chip>
+                <label {...getBaseProps()}>
+                  <VisuallyHidden>
+                    <input {...getInputProps()} />
+                  </VisuallyHidden>
+                  <Chip
+                    classNames={{
+                      base: styles.base(),
+                      content: styles.content(),
+                    }}
+                    color="primary"
+                    onPress={onOpen}
+                    startContent={
+                      isSelected ? <Signature className="ml-1" /> : null
+                    }
+                    variant="faded"
+                    {...getLabelProps()}
+                  >
+                    {children ? children : isSelected ? "Approval" : "Didn't Sign"}
+                  </Chip>
+                </label>
               </ModalFooter>
             </>
           )}
@@ -1368,7 +1411,7 @@ const ModalApprovalLembur = () => {
         size="sm"
       >
         <Tooltip content="View & Sign">
-          <Signature className="text-default-400" />
+          <ClipboardPen className="text-default-400" />
         </Tooltip>
       </Button>
       <Modal

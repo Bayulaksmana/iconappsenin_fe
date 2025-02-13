@@ -43,33 +43,45 @@ const topCardList = [
   },
 ];
 
-const tableColumns = [
-  {name: "NIP", uid: "nip", sortable: true},
-  {name: "NAME", uid: "name", sortable: true},
-  {name: "ROLE", uid: "role", sortable: true},
-  {name: "TEAM", uid: "team"},
-  {name: "EMAIL", uid: "email"},
-  {name: "CLOCK IN", uid: "clockIn", sortable: true},
-  {name: "CLOCK OUT", uid: "clockOut", sortable: true},
-  {name: "DATE", uid: "date"},
-  {name: "TIME", uid: "time"},
-  {name: "STATUS", uid: "status", sortable: true},
-  {name: "KETERANGAN", uid: "ket", sortable: true},
-  {name: "ACTIONS", uid: "actions"},
-];
-
 const statusOptions = [
   {name: "WFO", uid: "wfo"},
   {name: "WFA", uid: "wfa"},
   {name: "Submission", uid: "submission"},
 ];
 
+const tableColumns = [
+  { name: "NIP", uid: "nip", sortable: true },
+  { name: "NAME", uid: "name", sortable: true },
+  { name: "ROLE", uid: "role", sortable: true },
+  { name: "TEAM", uid: "team" },
+  { name: "EMAIL", uid: "email" },
+  { name: "CLOCK IN", uid: "clockIn", sortable: true },
+  { name: "CLOCK OUT", uid: "clockOut", sortable: true },
+  { name: "DATE", uid: "date" },
+  { name: "TIME", uid: "time" },
+  { name: "STATUS", uid: "status", sortable: true },
+  { name: "KETERANGAN", uid: "ket", sortable: true },
+  { name: "ACTIONS", uid: "actions" },
+];
+
+const columnAct = [
+  { name: "NAME/NIP", uid: "name" },
+  { name: "DAY", uid: "hari" },
+  { name: "TANGGAL", uid: "tanggal" },
+  { name: "CLOCK-IN", uid: "clockIn" },
+  { name: "CLOCK-OUT", uid: "clockOut" },
+  { name: "KETERANGAN", uid: "role" },
+  { name: "STATUS", uid: "status" },
+  { name: "ACTIONS", uid: "actions" },
+];
 const usersDummy = [
   {
-    nip: 1,
+    nip: 14456000001,
     name: "Tony Reichert",
     role: "CEO",
+    hari: "Senin",
     team: "Management",
+    tanggal: "13 Februari 2025",
     status: "wfo",
     time: "08.16",
     clockIn: "08:00",
@@ -81,6 +93,8 @@ const usersDummy = [
     name: "Zoey Lang",
     role: "Tech Lead",
     team: "Development",
+    hari: "Senin",
+    tanggal: "13 Februari 2025",
     status: "wfa",
     time: "08.16",
     clockIn: "08:00",
@@ -93,6 +107,8 @@ const usersDummy = [
     name: "Jane Fisher",
     role: "Sr. Dev",
     team: "Development",
+    hari: "Senin",
+    tanggal: "13 Februari 2025",
     status: "wfo",
     time: "08.16",
     clockIn: "08:00",
@@ -106,6 +122,7 @@ const usersDummy = [
     role: "C.M.",
     team: "Marketing",
     status: "submission",
+    tanggal: "13 Februari 2025",
     time: "08.16",
     clockIn: "08:00",
     clockOut: "17:00",
@@ -118,6 +135,7 @@ const usersDummy = [
     role: "S. Manager",
     team: "Sales",
     status: "wfo",
+    tanggal: "13 Februari 2025",
     time: "08.16",
     clockIn: "08:00",
     clockOut: "17:00",
@@ -129,6 +147,7 @@ const usersDummy = [
     name: "Brian Kim",
     role: "P. Manager",
     team: "Management",
+    tanggal: "13 Februari 2025",
     time: "08.16",
     clockIn: "08:00",
     clockOut: "17:00",
@@ -297,14 +316,6 @@ const usersDummy = [
   },
 ];
 
-const columnAct = [
-  { name: "NAME/NIP", uid: "name" },
-  { name: "TANGGAL", uid: "tanggal" },
-  { name: "CLOCK-IN", uid: "clockin" },
-  { name: "CLOCK-OUT", uid: "clockout" },
-  { name: "KETERANGAN", uid: "role" },
-  { name: "STATUS", uid: "status" },
-  { name: "ACTIONS", uid: "actions" },
-];
+
 
 export { menuItems, topCardList, tableColumns, statusOptions,usersDummy, columnAct};

@@ -62,7 +62,8 @@ const TopActivityTabs = () => {
             }
           >
             {/* Table yang belum absen */}
-            <ModalAbsensiComp />
+            <ModalAbsensiComp/>
+            <TableAbsensiComp />
             {/* Button action pengajuan cuti, pengajuan lembur, pengajuan SPD */}
           </Tab>
           <Tab

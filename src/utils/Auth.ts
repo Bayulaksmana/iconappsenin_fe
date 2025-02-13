@@ -11,18 +11,19 @@ interface User {
     token: string;
 }
 
+
 const dummyUsers: User[] = [
     { username: "test", password: "ABC123#", token: "fake-token" },
     { username: "user.123ASD#",password: "123ASD#", token: "token1" },
     { username: "user.S22411#",password: "S22411#", token: "token2" },
 ];
 
-const api = axios.create({
-    baseURL: 'http://127.0.0.1:8000/users/',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-});
+// const api = axios.create({
+//   baseURL: "postgresql://postgres:Absholuted22@localhost:5432/appsenindb",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+// });
 
 // export async function loginUser(user_name: string, user_pass: string): Promise<{ success: boolean; message?: string }> {
 //     try {
@@ -100,10 +101,10 @@ export async function getUser() {
         throw new Error("No token found");
     }
 
-    const response = await api.get("/profile", {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-    });
-    return response.data.user;
+//     const response = await api.get("/profile", {
+//         headers: {
+//             Authorization: `Bearer ${token}`,
+//         },
+//     });
+//     return response.data.user;
 }

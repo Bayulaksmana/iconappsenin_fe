@@ -1,0 +1,40 @@
+{
+  "pages": {
+    "/(dashboard)/activity/page": [
+      "static/chunks/_a91c21._.js",
+      "static/chunks/src_app_favicon_ico_mjs_ddfdf0._.js",
+      "static/chunks/[root of the server]__39bd70._.css",
+      "static/chunks/node_modules_next_6ac94b._.js",
+      "static/chunks/node_modules_axios_lib_c4c49c._.js",
+      "static/chunks/a480a_tailwind-merge_dist_lib_983356._.js",
+      "static/chunks/node_modules_@heroui_theme_dist_10bfca._.js",
+      "static/chunks/node_modules_@heroui_shared-utils_dist_1bf51c._.js",
+      "static/chunks/node_modules_@react-aria_03373f._.js",
+      "static/chunks/node_modules_@react-aria_09fbc5._.js",
+      "static/chunks/node_modules_@react-aria_39c50c._.js",
+      "static/chunks/node_modules_framer-motion_dist_es_dfbfcf._.js",
+      "static/chunks/node_modules_@react-aria_overlays_dist_702576._.js",
+      "static/chunks/node_modules_c356cf._.js",
+      "static/chunks/src_d947b5._.js",
+      "static/chunks/node_modules_@heroui_dom-animation_dist_index_mjs_49c7a4._.js",
+      "static/chunks/src_app_layout_tsx_61af54._.js",
+      "static/chunks/node_modules_@react-aria_ed70a7._.js",
+      "static/chunks/node_modules_@react-aria_cb34ec._.js",
+      "static/chunks/node_modules_@react-aria_404429._.js",
+      "static/chunks/node_modules_@react-aria_5acd33._.js",
+      "static/chunks/node_modules_framer-motion_dist_es_bafd1c._.js",
+      "static/chunks/node_modules_c58d01._.js",
+      "static/chunks/src_a568fa._.js",
+      "static/chunks/node_modules_@heroui_dom-animation_dist_index_mjs_159bba._.js",
+      "static/chunks/src_app_(dashboard)_activity_page_tsx_f7fa3b._.js",
+      "static/chunks/node_modules_next_dist_compiled_react-dom_1f56dc._.js",
+      "static/chunks/node_modules_next_dist_compiled_107ce8._.js",
+      "static/chunks/node_modules_next_dist_client_523921._.js",
+      "static/chunks/node_modules_next_dist_4bb10e._.js",
+      "static/chunks/node_modules_@swc_helpers_cjs_00636a._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_d0a96d._.js",
+      "static/chunks/_e69f0d._.js",
+      "static/chunks/_d95469._.js"
+    ]
+  }
+}
